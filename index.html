@@ -1,11 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>hello world </h1>
-</body>
+<html>
+  <head>
+    <title>Calculator</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .calculator {
+        border: 2px solid black;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+      }
+
+      input {
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+        font-size: 18px;
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <h2>Calculator</h2>
+
+      <input type="text" id="screen" />
+
+      <br />
+
+      <button onclick="clearScreen()">AC</button>
+      <button onclick="show('%')">%</button>
+      <button onclick="show('*')">*</button>
+      <button onclick="show('/')">/</button>
+
+      <br />
+
+      <button onclick="show('7')">7</button>
+      <button onclick="show('8')">8</button>
+      <button onclick="show('9')">9</button>
+      <button onclick="show('-')">-</button>
+
+      <br />
+
+      <button onclick="show('4')">4</button>
+      <button onclick="show('5')">5</button>
+      <button onclick="show('6')">6</button>
+      <button onclick="show('+')">+</button>
+
+      <br />
+
+      <button onclick="show('1')">1</button>
+      <button onclick="show('2')">2</button>
+      <button onclick="show('3')">3</button>
+      <button onclick="calculate()">=</button>
+
+      <br />
+
+      <button onclick="show('0')">0</button>
+      <button onclick="show('.')">.</button>
+    </div>
+
+    <script>
+      function show(value) {
+        document.getElementById("screen").value += value;
+      }
+
+      function clearScreen() {
+        document.getElementById("screen").value = "";
+      }
+
+      function calculate() {
+        let x = document.getElementById("screen").value;
+        document.getElementById("screen").value = eval(x);
+      }
+    </script>
+  </body>
 </html>
